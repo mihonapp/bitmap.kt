@@ -47,11 +47,6 @@ actual class Bitmap(val image: NativeBitmap) {
         image.getPixels(pixels, offset, stride, x, y, width, height)
     }
 
-    actual fun applyCanvas(block: Canvas.() -> Unit): Bitmap {
-        Canvas(this).apply(block)
-        return this
-    }
-
     actual companion object {
         actual fun createBitmap(width: Int, height: Int, config: Config): Bitmap {
             return Bitmap(NativeBitmap.createBitmap(width, height, config.native))

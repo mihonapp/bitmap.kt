@@ -121,11 +121,6 @@ actual class Bitmap(val image: BufferedImage) {
         }
     }
 
-    actual fun applyCanvas(block: Canvas.() -> Unit): Bitmap {
-        Canvas(this).apply(block)
-        return this
-    }
-
     actual companion object {
         /**
          * Common code for checking that x and y are >= 0
