@@ -14,32 +14,20 @@ actual class Bitmap(val image: BufferedImage) {
     actual val width: Int = image.width
     actual val height: Int = image.height
 
-    actual enum class CompressFormat(val nativeInt: Int) {
-        JPEG(0),
-        PNG(1),
-        WEBP(2),
-        WEBP_LOSSY(3),
-        WEBP_LOSSLESS(4)
+    actual enum class CompressFormat {
+        JPEG,
+        PNG,
+        WEBP_LOSSY,
+        WEBP_LOSSLESS
     }
 
-    actual enum class Config(val nativeInt: Int) {
-        ALPHA_8(1),
-        RGB_565(3),
-        ARGB_4444(4),
-        ARGB_8888(5),
-        RGBA_F16(6),
-        HARDWARE(7),
-        RGBA_1010102(8);
-
-        companion object {
-            private val sConfigs = arrayOf(
-                null, ALPHA_8, null, RGB_565, ARGB_4444, ARGB_8888, RGBA_F16, HARDWARE, RGBA_1010102
-            )
-
-            fun nativeToConfig(ni: Int): Config? {
-                return sConfigs[ni]
-            }
-        }
+    actual enum class Config {
+        ALPHA_8,
+        RGB_565,
+        ARGB_8888,
+        RGBA_F16,
+        HARDWARE,
+        RGBA_1010102;
     }
 
     actual fun compress(format: CompressFormat, quality: Int, sink: Sink): Boolean {
@@ -131,6 +119,11 @@ actual class Bitmap(val image: BufferedImage) {
             val rowOffset = offset + stride * ht
             System.arraycopy(rasterPixels, ht * width, pixels, rowOffset, width)
         }
+    }
+
+    actual fun applyCanvas(block: Canvas.() -> Unit): Bitmap {
+        Canvas(this).apply(block)
+        return this
     }
 
     actual companion object {

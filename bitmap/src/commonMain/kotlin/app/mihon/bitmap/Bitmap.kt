@@ -34,6 +34,8 @@ expect class Bitmap {
         height: Int
     )
 
+    fun applyCanvas(block: Canvas.() -> Unit): Bitmap
+
     companion object {
 
         fun createBitmap(width: Int, height: Int, config: Config): Bitmap

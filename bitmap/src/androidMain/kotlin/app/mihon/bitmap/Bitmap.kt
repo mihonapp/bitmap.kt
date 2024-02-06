@@ -46,6 +46,11 @@ actual class Bitmap(val image: android.graphics.Bitmap) {
         image.getPixels(pixels, offset, stride, x, y, width, height)
     }
 
+    actual fun applyCanvas(block: Canvas.() -> Unit): Bitmap {
+        Canvas(this).apply(block)
+        return this
+    }
+
     actual companion object {
         actual fun createBitmap(width: Int, height: Int, config: Config): Bitmap {
             return Bitmap(android.graphics.Bitmap.createBitmap(width, height, config.native))
