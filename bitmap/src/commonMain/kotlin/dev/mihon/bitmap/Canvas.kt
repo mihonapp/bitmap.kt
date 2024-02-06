@@ -1,4 +1,4 @@
-package app.mihon.bitmap
+package dev.mihon.bitmap
 
 
 expect class Canvas(bitmap: Bitmap) {

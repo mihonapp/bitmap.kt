@@ -35,7 +35,7 @@ kotlin {
 }
 
 android {
-    namespace = "app.mihon.bitmap"
+    namespace = "dev.mihon.bitmap"
     compileSdk = 34
     defaultConfig {
         minSdk = 21

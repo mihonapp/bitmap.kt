@@ -1,6 +1,4 @@
-package app.mihon.bitmap
-
-import java.util.regex.Matcher
+package dev.mihon.bitmap
 
 data class Rect(
     val left: Int = 0,

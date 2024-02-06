@@ -1,4 +1,4 @@
-package app.mihon.bitmap
+package dev.mihon.bitmap
 
 import kotlinx.io.Source
 import kotlinx.io.asInputStream
@@ -25,7 +25,7 @@ actual interface BitmapFactory {
             return instance.decodeByteArray(data, offset, length)
         }
 
-        actual fun setInstance(bitmapFactory: app.mihon.bitmap.BitmapFactory) {
+        actual fun setInstance(bitmapFactory: BitmapFactory) {
             instance = bitmapFactory
         }
     }

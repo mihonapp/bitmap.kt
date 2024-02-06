@@ -1,4 +1,4 @@
-package app.mihon.bitmap
+package dev.mihon.bitmap
 
 import android.annotation.TargetApi
 import android.os.Build

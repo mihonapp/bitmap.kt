@@ -1,4 +1,4 @@
-package app.mihon.bitmap
+package dev.mihon.bitmap
 
 import java.awt.Graphics2D
 import java.awt.Paint
