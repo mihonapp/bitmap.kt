@@ -9,8 +9,31 @@ import java.io.InputStream
 import javax.imageio.ImageIO
 import javax.imageio.ImageReader
 
-actual object BitmapFactory {
-    actual fun decodeStream(source: Source): Bitmap {
+actual interface BitmapFactory {
+    actual fun decodeSource(source: Source): Bitmap
+
+    actual fun decodeByteArray(data: ByteArray, offset: Int, length: Int): Bitmap?
+
+    actual companion object : BitmapFactory {
+        private var instance: BitmapFactory = BitmapFactoryImageIoImpl()
+
+        override fun decodeSource(source: Source): Bitmap {
+            return instance.decodeSource(source)
+        }
+
+        override fun decodeByteArray(data: ByteArray, offset: Int, length: Int): Bitmap? {
+            return instance.decodeByteArray(data, offset, length)
+        }
+
+        actual fun setInstance(bitmapFactory: app.mihon.bitmap.BitmapFactory) {
+            instance = bitmapFactory
+        }
+    }
+}
+
+private class BitmapFactoryImageIoImpl : BitmapFactory {
+
+    override fun decodeSource(source: Source): Bitmap {
         val bitmap: Bitmap
         try {
             val imageInputStream = ImageIO.createImageInputStream(source.asInputStream())
@@ -27,7 +50,7 @@ actual object BitmapFactory {
         return bitmap
     }
 
-    actual fun decodeByteArray(data: ByteArray, offset: Int, length: Int): Bitmap? {
+    override fun decodeByteArray(data: ByteArray, offset: Int, length: Int): Bitmap? {
         val byteArrayStream = ByteArrayInputStream(data)
         val bitmap: Bitmap = try {
             val image = ImageIO.read(byteArrayStream)

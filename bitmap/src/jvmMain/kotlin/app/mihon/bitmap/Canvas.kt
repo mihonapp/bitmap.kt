@@ -4,7 +4,7 @@ import java.awt.Graphics2D
 import java.awt.Paint
 import java.awt.image.BufferedImage
 
-class Canvas(bitmap: Bitmap) {
+actual class Canvas actual constructor(bitmap: Bitmap) {
     private val canvasImage: BufferedImage
     private val canvas: Graphics2D
 
@@ -16,7 +16,7 @@ class Canvas(bitmap: Bitmap) {
     /**
      * TODO implement [paint]
      */
-    fun drawBitmap(sourceBitmap: Bitmap, src: Rect, dst: Rect, paint: Paint?) {
+    actual fun drawBitmap(sourceBitmap: Bitmap, src: Rect, dst: Rect) {
         val sourceImage = sourceBitmap.image
         val sourceImageCropped =
             sourceImage.getSubimage(src.left, src.top, src.width, src.height)

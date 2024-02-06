@@ -8,8 +8,12 @@ import java.io.InputStream
 import javax.imageio.ImageIO
 import javax.imageio.ImageReader
 
-expect object BitmapFactory {
-    fun decodeStream(source: Source): Bitmap
+expect interface BitmapFactory {
+    fun decodeSource(source: Source): Bitmap
 
     fun decodeByteArray(data: ByteArray, offset: Int, length: Int): Bitmap?
+
+    companion object : BitmapFactory {
+        fun setInstance(bitmapFactory: BitmapFactory)
+    }
 }
