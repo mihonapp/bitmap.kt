@@ -4,7 +4,6 @@ import kotlinx.io.Sink
 import kotlinx.io.asOutputStream
 import java.awt.image.BufferedImage
 import java.io.IOException
-import java.io.OutputStream
 import javax.imageio.IIOImage
 import javax.imageio.ImageIO
 import javax.imageio.ImageWriteParam
@@ -18,7 +17,7 @@ actual class Bitmap(val image: BufferedImage) {
         JPEG,
         PNG,
         WEBP_LOSSY,
-        WEBP_LOSSLESS
+        WEBP_LOSSLESS,
     }
 
     actual enum class Config {
@@ -27,7 +26,7 @@ actual class Bitmap(val image: BufferedImage) {
         ARGB_8888,
         RGBA_F16,
         HARDWARE,
-        RGBA_1010102;
+        RGBA_1010102,
     }
 
     actual fun compress(format: CompressFormat, quality: Int, sink: Sink): Boolean {
@@ -75,8 +74,13 @@ actual class Bitmap(val image: BufferedImage) {
      * @param pixels array to hold the area of pixels being accessed
      */
     private fun checkPixelsAccess(
-        x: Int, y: Int, width: Int, height: Int,
-        offset: Int, stride: Int, pixels: IntArray
+        x: Int,
+        y: Int,
+        width: Int,
+        height: Int,
+        offset: Int,
+        stride: Int,
+        pixels: IntArray,
     ) {
         checkXYSign(x, y)
         require(width >= 0) { "width must be >= 0" }
@@ -85,12 +89,12 @@ actual class Bitmap(val image: BufferedImage) {
         }
         if (x + width > this.width) {
             throw IllegalArgumentException(
-                "x + width must be <= bitmap.width()"
+                "x + width must be <= bitmap.width()",
             )
         }
         if (y + height > this.height) {
             throw IllegalArgumentException(
-                "y + height must be <= bitmap.height()"
+                "y + height must be <= bitmap.height()",
             )
         }
         if (Math.abs(stride) < width) {
@@ -104,13 +108,14 @@ actual class Bitmap(val image: BufferedImage) {
     }
 
     actual fun getPixels(
-        /*@ColorInt*/ pixels: IntArray,
+        /*@ColorInt*/
+        pixels: IntArray,
         offset: Int,
         stride: Int,
         x: Int,
         y: Int,
         width: Int,
-        height: Int
+        height: Int,
     ) {
         checkPixelsAccess(x, y, width, height, offset, stride, pixels)
         val raster = image.data

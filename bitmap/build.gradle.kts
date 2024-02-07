@@ -48,9 +48,11 @@ spotless {
         target("**/*.kt", "**/*.kts")
         targetExclude("**/build/**/*.kt")
         ktlint(libs.ktlint.cli.get().version)
-            .editorConfigOverride(mapOf(
-                "ktlint_standard_discouraged-comment-location" to "disabled"
-            ))
+            .editorConfigOverride(
+                mapOf(
+                    "ktlint_standard_discouraged-comment-location" to "disabled",
+                ),
+            )
         trimTrailingWhitespace()
         endWithNewline()
     }
