@@ -1,6 +1,7 @@
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.spotless)
 }
 
 kotlin {
@@ -8,14 +9,14 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = JavaVersion.VERSION_1_8.toString()
             }
         }
     }
     jvm {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = JavaVersion.VERSION_1_8.toString()
             }
         }
     }
@@ -39,5 +40,24 @@ android {
     compileSdk = 34
     defaultConfig {
         minSdk = 21
+    }
+}
+
+spotless {
+    kotlin {
+        target("**/*.kt", "**/*.kts")
+        targetExclude("**/build/**/*.kt")
+        ktlint(libs.ktlint.cli.get().version)
+            .editorConfigOverride(mapOf(
+                "ktlint_standard_discouraged-comment-location" to "disabled"
+            ))
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+    format("misc") {
+        target("**/.gitignore", "**/*.xml")
+        targetExclude("**/build/**/*.xml")
+        trimTrailingWhitespace()
+        endWithNewline()
     }
 }

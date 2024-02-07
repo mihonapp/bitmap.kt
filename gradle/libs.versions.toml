@@ -1,12 +1,17 @@
 [versions]
 agp = "8.2.2"
 kotlin = "1.9.22"
+ktlint-cli = "1.0.1"
 kotlinxio = "0.3.1"
+spotless = "6.25.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinx-io = { module = "org.jetbrains.kotlinx:kotlinx-io-core", version.ref = "kotlinxio" }
 
+ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlint-cli" }
+
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
