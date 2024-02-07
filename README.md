@@ -24,10 +24,6 @@ Thank you to all the people who have contributed!
     <img src="https://contrib.rocks/image?repo=mihonapp/bitmap.kt" alt="Mihon bitmap.kt contributors" title="Mihon bitmap.kt contributors"/>
 </a>
 
-### Disclaimer
-
-The developer(s) of this application does not have any affiliation with the content providers available, and this application hosts zero content.
-
 ### License
 
 <pre>
