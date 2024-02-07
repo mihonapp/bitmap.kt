@@ -9,6 +9,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
+                freeCompilerArgs += "-Xexpect-actual-classes"
                 jvmTarget = JavaVersion.VERSION_1_8.toString()
             }
         }
@@ -16,6 +17,7 @@ kotlin {
     jvm {
         compilations.all {
             kotlinOptions {
+                freeCompilerArgs += "-Xexpect-actual-classes"
                 jvmTarget = JavaVersion.VERSION_1_8.toString()
             }
         }
