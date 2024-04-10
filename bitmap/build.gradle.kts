@@ -2,17 +2,22 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.spotless)
+    `maven-publish`
 }
 
 kotlin {
     jvmToolchain(8)
     androidTarget {
+        publishLibraryVariants("release")
         compilations.all {
             kotlinOptions {
                 freeCompilerArgs += "-Xexpect-actual-classes"
                 jvmTarget = JavaVersion.VERSION_1_8.toString()
             }
+
         }
+
+
     }
     jvm {
         compilations.all {
@@ -43,7 +48,15 @@ android {
     defaultConfig {
         minSdk = 21
     }
+
+    publishing {
+        multipleVariants {
+            allVariants()
+            withSourcesJar()
+        }
+    }
 }
+
 
 spotless {
     kotlin {
