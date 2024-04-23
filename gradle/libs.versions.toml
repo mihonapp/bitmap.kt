@@ -2,7 +2,7 @@
 agp = "8.3.2"
 kotlin = "1.9.23"
 ktlint-cli = "1.2.1"
-kotlinx-io = "0.3.2"
+kotlinx-io = "0.3.3"
 spotless = "6.25.0"
 
 [libraries]
