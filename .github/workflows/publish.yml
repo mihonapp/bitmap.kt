@@ -1,4 +1,4 @@
-name: Publish Snapshot builds
+name: Publish builds
 
 on:
   push:
@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   publish:
-    name: Snapshot build and publish
+    name: Build and publish
     runs-on: macos-latest
     steps:
       - name: Check out code
