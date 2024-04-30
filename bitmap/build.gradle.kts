@@ -8,7 +8,6 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(8)
     androidTarget {
         compilations.all {
             kotlinOptions {
