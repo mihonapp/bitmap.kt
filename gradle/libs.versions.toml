@@ -3,6 +3,7 @@ agp = "8.3.2"
 kotlin = "1.9.23"
 ktlint-cli = "1.2.1"
 kotlinx-io = "0.3.3"
+maven-publish = "0.28.0"
 spotless = "6.25.0"
 
 [libraries]
@@ -14,4 +15,5 @@ ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlint
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
