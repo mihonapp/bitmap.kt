@@ -72,13 +72,12 @@ spotless {
 mavenPublishing {
     val isSnapshot = System.getenv("SNAPSHOT").toBoolean()
 
-    val version = "0.0.0"
-    val developmentVersion = "1.0.0"
+    val version = "0.1.0"
 
     coordinates(
         groupId = "dev.mihon",
         artifactId = "bitmap-kt",
-        version = if (isSnapshot) "$developmentVersion-SNAPSHOT" else version,
+        version = if (isSnapshot) "$version-SNAPSHOT" else version,
     )
 
     pom {
