@@ -76,9 +76,9 @@ mavenPublishing {
     val developmentVersion = "1.0.0"
 
     coordinates(
-        groupId =  "dev.mihon",
-        artifactId =  "bitmap-kt",
-        version = if (isSnapshot) "$developmentVersion-SNAPSHOT" else version
+        groupId = "dev.mihon",
+        artifactId = "bitmap-kt",
+        version = if (isSnapshot) "$developmentVersion-SNAPSHOT" else version,
     )
 
     pom {
