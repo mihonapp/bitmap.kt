@@ -121,5 +121,5 @@ mavenPublishing {
     }
 
     signAllPublications()
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = isSnapshot)
+    publishToMavenCentral(SonatypeHost.S01, automaticRelease = isSnapshot)
 }
