@@ -10,8 +10,8 @@ A Kotlin Multiplatform image manipulation library based on Android's Bitmap.
 
 [![License: MPL-2.0](https://img.shields.io/github/license/mihonapp/bitmap.kt?labelColor=27303D&color=0877d2)](/LICENSE)
 [![Discord server](https://img.shields.io/discord/1195734228319617024.svg?label=&labelColor=6A7EC2&color=7389D8&logo=discord&logoColor=FFFFFF)](https://discord.gg/mihon)
-[![Release](https://img.shields.io/maven-central/v/dev.mihon/bitmap-kt.svg?label=Release)](https://central.sonatype.com/artifact/dev.mihon/bitmap-kt)
-[![Snapshot](https://img.shields.io/nexus/s/dev.mihon/bitmap-kt?server=https%3A%2F%2Foss.sonatype.org&label=Snapshot)](https://oss.sonatype.org/content/repositories/snapshots/dev/mihon/bitmap-kt)
+[![Release](https://img.shields.io/maven-central/v/dev.mihon/bitmap-kt?label=Release&color=green)](https://central.sonatype.com/artifact/dev.mihon/bitmap-kt)
+[![Snapshot](https://img.shields.io/nexus/s/dev.mihon/bitmap-kt?server=https%3A%2F%2Fs01.oss.sonatype.org&label=Snapshot)](https://s01.oss.sonatype.org/content/repositories/snapshots/dev/mihon/bitmap-kt)
 
 <div align="left">
 
@@ -27,13 +27,11 @@ kotlin {
 
 ### Snapshots
 
-Snapshots of the current development version of Bitmap.kt are available, at [Sonatype's `snapshot` repository](https://oss.sonatype.org/content/repositories/snapshots/dev/mihon/bitmap-kt).
-
-To import snapshot versions on your project, add the code snippet below on your gradle file:
+To import snapshot versions into your project, add the following code snippet to your gradle file:
 
 ```settings.gradle.kts
 repositories {
-   maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
+   maven("https://oss.sonatype.org/content/repositories/snapshots")
 }
 ```
 
