@@ -2,7 +2,7 @@
 agp = "8.4.0"
 kotlin = "1.9.24"
 ktlint-cli = "1.2.1"
-kotlinx-io = "0.3.3"
+kotlinx-io = "0.3.4"
 maven-publish = "0.28.0"
 spotless = "6.25.0"
 
