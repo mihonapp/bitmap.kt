@@ -1,6 +1,6 @@
 [versions]
 agp = "8.4.1"
-kotlin = "1.9.24"
+kotlin = "2.0.0"
 ktlint-cli = "1.2.1"
 kotlinx-io = "0.3.5"
 maven-publish = "0.28.0"
